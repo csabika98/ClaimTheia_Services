@@ -1,0 +1,17 @@
+[Unit]
+Description=ClaimTheia Frontend Service
+After=network.target
+
+[Service]
+User=azureuser
+Group=azureuser
+WorkingDirectory=/home/azureuser/claimtheiaFrontEnd
+ExecStart=/usr/bin/npm run dev
+Environment="PATH=/usr/bin"
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/claimtheia/claimtheia_frontend.log
+StandardError=append:/var/log/claimtheia/claimtheia_frontend_error.log
+
+[Install]
+WantedBy=multi-user.target
